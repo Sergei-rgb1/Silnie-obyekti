@@ -76,3 +76,64 @@ spot.sitting = true;
 spot.hasOwnProperty("sitting");
 fido.hasOwnProperty("sitting");
 
+
+
+function ShowDog (name, breed, weight, handler,) {
+    Dog.call(this, name, breed, weight);
+    // this.name = name;
+    // this.breed = breed;
+    // this.weight = weight;
+    this.handler = handler;
+}
+
+ShowDog.prototype = new Dog()
+
+ShowDog.prototype.constructor = ShowDog;
+
+ShowDog.prototype.league = "Webville";
+
+ShowDog.prototype.stack = function() {
+    console.log("Stack");
+};
+
+ShowDog.prototype.bait = function() {
+    console.log("Bait");
+};
+
+ShowDog.prototype.gait = function(kind) {
+    console.log(kind + "ing");
+};
+
+ShowDog.prototype.groom = function() {
+    console.log("Groom");
+};
+
+var scotty = new ShowDog ("Scotty", "Scottish Terrier", 15, "Cookie");
+
+scotty.stack();
+scotty.bark();
+console.log(scotty.league);
+console.log(scotty.species);
+
+
+String.prototype.chiche = function() {
+    var cliche = ["look and load", "touch base", "open the kimono"];
+
+    for (var i = 0; i < cliche.length; i++) {
+        var  index = this.indexOf(cliche[i]);
+        if (index >= 0) {
+            return true;
+        }
+    }
+    return false;
+};
+var sentences = ["I'll send my car around to pick you up. ",
+                "Let's touch base in the morning and see where we are",
+                "We don't want to open the kimono, we just want to inform them."];
+
+for (var i = 0; i < sentences.length; i++) {
+    var phrase = sentences[i]
+    if (phrase.cliche()) {
+        console.log("кликни туда:" + phrase);
+    }
+}
